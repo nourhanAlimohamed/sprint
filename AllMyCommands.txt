@@ -1,7 +1,241 @@
- noushi/1.1 getting started.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git init
+Initialized empty Git repository in C:/Users/UPDATE/Desktop/sprint0-master/.git/
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+        README.md
+        five.txt
+        one.txt
+        three.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git add one.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git add three.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git add fie.txt
+fatal: pathspec 'fie.txt' did not match any files
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git add five.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   five.txt
+        new file:   one.txt
+        new file:   three.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
 
 
-noushi/3.1 Git branching.txt
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git rm --cached three.txt
+rm 'three.txt'
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git add three.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git config --global user.name "nourhanAlimohamed"
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git config user.email "nourhan.mohamedeid@student.guc.edu.eg"
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ ls
+AllMyCommands.txt  five.txt  one.txt  three.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   five.txt
+        new file:   one.txt
+        new file:   three.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
 
 
-noushi/5.1 distributed git.txt
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git commit -m 'add three text files on master'
+[master (root-commit) 5a23656] add three text files on master
+ 3 files changed, 191 insertions(+)
+ create mode 100644 five.txt
+ create mode 100644 one.txt
+ create mode 100644 three.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git rm three.txt
+rm 'three.txt'
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ ls
+AllMyCommands.txt  five.txt  one.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git commit -m 'file three is deleted'
+[master 2e73634] file three is deleted
+ 1 file changed, 101 deletions(-)
+ delete mode 100644 three.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ :q
+bash: :q: command not found
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git log
+commit 2e736342cfb9e429612aae3a58dfdbb4abf4919a (HEAD -> master)
+Author: nourhanAlimohamed <nourhan.mohamedeid@student.guc.edu.eg>
+Date:   Thu Feb 15 21:12:59 2018 +0200
+
+    file three is deleted
+
+commit 5a23656d20a3ceb3c6cba9da70d3fce5d0cb109f
+Author: nourhanAlimohamed <nourhan.mohamedeid@student.guc.edu.eg>
+Date:   Thu Feb 15 21:11:34 2018 +0200
+
+    add three text files on master
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$  git revert 2e736342cfb9e429612aae3a58dfdbb4abf4919a
+[master c29e36a] Revert "file three is deleted"
+ 1 file changed, 101 insertions(+)
+ create mode 100644 three.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        AllMyCommands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ ls
+AllMyCommands.txt  five.txt  one.txt  three.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git remote add origin https://github.com/nourhanAlimohamed/sprint.git
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git push -u origin master
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 8.26 KiB | 2.75 MiB/s, done.
+Total 8 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/nourhanAlimohamed/sprint.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ touch README.md
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git branch READMe
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git checkout READMe
+Switched to branch 'READMe'
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (READMe)
+$ git add README.md
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (READMe)
+$ git commit -m 'add the readme file to master'
+[READMe b6d1fb4] add the readme file to master
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (READMe)
+$ git checout master
+git: 'checout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (READMe)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git merge READMe
+Updating c29e36a..b6d1fb4
+Fast-forward
+ README.md | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git add AllMyCommands.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git commit -m 'add all my command to master'
+[master f35f2c4] add all my command to master
+ 1 file changed, 7 insertions(+)
+ create mode 100644 AllMyCommands.txt
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git push u- origin master
+error: src refspec origin does not match any.
+error: failed to push some refs to 'u-'
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$ git push origin master
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 669 bytes | 669.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/nourhanAlimohamed/sprint.git
+   c29e36a..f35f2c4  master -> master
+
+UPDATE@DESKTOP-EBTM9QJ MINGW64 ~/Desktop/sprint0-master (master)
+$
